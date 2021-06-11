@@ -1,0 +1,38 @@
+<h1>Teacher</h1>
+
+<!-- send a message on a click of these two buttons -->
+<button (click)="greetStudent()">Greet Student</button>
+<button (click)="appreciateStudent()">Appreciate Student</button>
+<app-child></app-child>
+
+
+
+<!--Concept of a subject
+If we have two components say teacher or student. They may or may not be related. 
+They could be parent child or siblings or not at all related but they share the same instance of a sercive.
+
+Suppose a teacher component wants to send a message to the student component
+teacher---good morning student  
+            student-----good morning teacher
+          
+teacher--- well done 
+           student----thank you teacher
+          
+Now we cannot use eventemitter class because they maynot be related and even if they are
+ there will be a lot of hierarchy you'll have to get through which makes the code more difficult to maintain.
+
+Instead we'll be using a special type of observable known as 'Subject'
+
+A subject is an observable and an observer. 
+in simple words a subject involves in taking the notification from single source and forward then]m to one or more destinations.
+A subject is usually placed in a service
+
+
+So if the teacher wants to send a message to one or more students the teacher sends the message to the subject.
+the subject then pushes a notification to all the components that have to subscribe to it. 
+so if there are five students subscribed to the subject they all recieve message from the teacher-->
+
+<!--
+  Step 1-Create a subject and express the subject as an observalbe.
+  Step 2-send the message from the teacher component to the subject.
+  Step 3- subscribe to the subject from the student component so that the student can react to any messages from the teacher component.-->
